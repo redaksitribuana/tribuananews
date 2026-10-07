@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://www.tribuananews.co.id/admin/dashboard/../assets/vendor/typeahead/typeahead.jquery.min.js"></script>
+    <script src="https://www.tribuananews.co.id/admin/dashboard/../assets/vendor/typeahead/bloodhound.min.js"></script>
+    <script src="https://www.tribuananews.co.id/admin/dashboard/../assets/vendor/screenfull/screenfull.min.js"></script>
+    <script src="https://www.tribuananews.co.id/admin/dashboard/../assets/vendor/sweetalert2/sweetalert2.min.js"></script>
+    <script src="https://www.tribuananews.co.id/admin/dashboard/../assets/vendor/switchery/switchery.min.js"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Dashboard — PT. TRIBUANA PUTRA TASIK</title>
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,300i" rel="stylesheet">
+    <link href="../assets/vendor/sweetalert2/sweetalert2.min.css" rel="stylesheet">
+    <link href="../assets/vendor/material-icons/css/material-icons.css" rel="stylesheet">
+    <link href="../assets/vendor/switchery/switchery.min.css" rel="stylesheet">
+
+    <!-- Styles -->
+    <link href="../assets/css/core.min.css" rel="stylesheet">
+    <link href="../assets/css/app.min.css" rel="stylesheet">
+    <link href="../assets/css/style.min.css" rel="stylesheet">
+        
+    <!-- Favicons	-->
+    <link rel="apple-touch-icon" href="../assets/img/favicon.png">
+    <link rel="icon" href="../assets/img/favicon.png">
+    <style>
+        .no-sort::after, .no-sort::before  { display: none!important; }
+        .no-sort { pointer-events: none!important; cursor: default!important; }
+        .hidden { display:none; }
+    </style>
+    <style>.cke{visibility:hidden;}</style>
+</head>
+<body class="sidebar-folded  pace-done">
+    <div class="pace  pace-inactive">
+        <div class="pace-progress" data-progress-text="100%" data-progress="99" style="width: 100%;">
+            <div class="pace-progress-inner"></div>
+        </div>
+        <div class="pace-activity"></div>
+    </div>
+
+    <!-- Preloader -->
+    <div class="preloader" style="display: none;">
+        <div class="spinner-dots">
+            <span class="dot1"></span>
+            <span class="dot2"></span>
+            <span class="dot3"></span>
+        </div>
+    </div>
+
+    <!-- Sidebar -->
+    <aside class="sidebar sidebar-icons-right sidebar-icons-boxed sidebar-expand-lg">
+        <header class="sidebar-header bg-dark">
+            <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+            <a class="logo-icon" href="./"><img src="../assets/img/logo-icon-light.png" alt="logo icon"></a>
+            <span class="logo">
+                <a href="./"><img src="../../images/IMG-20260416-WA0065.jpg" alt="logo" style="border:3px solid #fff; background:#fff"></a>
+            </span>
+            <span class="sidebar-toggle-fold"></span>
+        </header>
+        <nav class="sidebar-navigation ps-container ps-theme-default" data-ps-id="8411338e-97e3-1a18-672d-b69e7cfae298">
+            <ul class="menu">
+                <li class="menu-category">Redaksi</li>
+                <li class="menu-item active">
+                    <a class="menu-link" href="./">
+                        <span class="icon fa fa-tv"></span>
+                        <span class="title">Dashboard</span>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a class="menu-link " href="#">
+                        <span class="icon fa fa-cogs"></span>
+                        <span class="title">Konfigurasi</span>
+                        <span class="arrow"></span>
+                    </a>
+                    <ul class="menu-submenu">
+                        <li class="menu-item ">
+                            <a class="menu-link" href="./?menu=config&amp;sub=setting">
+                                <span class="dot"></span>
+                                <span class="title">Setting Utama</span>
+                            </a>
+                        </li>
+                        <li class="menu-item ">
+                            <a class="menu-link" href="./?menu=config&amp;sub=akun">
+                                <span class="dot"></span>
+                                <span class="title">Akun Saya</span>
+                            </a>
+                        </li>
+                        <li class="menu-item ">
+                            <a class="menu-link" href="./?menu=config&amp;sub=users">
+                                <span class="dot"></span>
+                                <span class="title">Data User Admin</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="menu-item">
+                    <a class="menu-link " href="#">
+                        <span class="icon fa fa-book"></span>
+                        <span class="title">Data Berita</span>
+                        <span class="arrow"></span>
+                    </a>
+                    <ul class="menu-submenu">
+                        <li class="menu-item ">
+                            <a class="menu-link" href="./?menu=berita&amp;sub=kategori">
+                                <span class="dot"></span>
+                                <span class="title">Kategori/Rubrik</span>
+                            </a>
+                        </li>
+                        <li class="menu-item ">
+                            <a class="menu-link" href="./?menu=berita&amp;sub=tulisberita">
+                                <span class="dot"></span>
+                                <span class="title">Tulis Berita Baru [+]</span>
+                            </a>
+                        </li>
+                        <li class="menu-item ">
+                            <a class="menu-link" href="./?menu=berita&amp;sub=arsipberita&amp;tanggal=2026-01-01&amp;sampai=2026-10-07">
+                                <span class="dot"></span>
+                                <span class="title">Arsip Berita</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="menu-item">
+                    <a class="menu-link " href="#">
+                        <span class="icon fa fa-bullhorn"></span>
+                        <span class="title">Spot Iklan</span>
+                        <span class="arrow"></span>
+                    </a>
+                    <ul class="menu-submenu">
+                        <li class="menu-item ">
+                            <a class="menu-link" href="#" data-provide="modaler switchery" data-url="iklan/iklanbaru.php" data-title="New Data" data-footer-visible="false" data-size="lg">
+                                <span class="dot"></span>
+                                <span class="title">Spot Iklan Baru [+]</span>
+                            </a>
+                        </li>
+                        <li class="menu-item ">
+                            <a class="menu-link" href="./?menu=iklan&amp;sub=dataiklan">
+                                <span class="dot"></span>
+                                <span class="title">Data Iklan</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="menu-divider"></li>
+                <li class="menu-item">
+                    <a class="menu-link" href="./?menu=backup&amp;sub=backup">
+                        <span class="icon fa fa-save"></span>
+                        <span class="title">Backup Data</span>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a class="menu-link" href="../../" target="_blank">
+                        <span class="icon fa fa-search"></span>
+                        <span class="title">Lihat Halaman Depan</span>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a class="menu-link" href="../logout.html">
+                        <span class="icon fa fa-power-off"></span>
+                        <span class="title">Logout</span>
+                    </a>
+                </li>
+            </ul>
+            <div class="ps-scrollbar-x-rail" style="left: 0px; bottom: 0px;">
+                <div class="ps-scrollbar-x" tabindex="0" style="left: 0px; width: 0px;"></div>
+            </div>
+            <div class="ps-scrollbar-y-rail" style="top: 0px; right: 2px;">
+                <div class="ps-scrollbar-y" tabindex="0" style="top: 0px; height: 0px;"></div>
+            </div>
+        </nav>
+    </aside>
+    <!-- END Sidebar -->
+    <!-- Topbar -->
+    <header class="topbar">
+        <div class="topbar-left">
+            <span class="topbar-btn sidebar-toggler"><i>☰</i></span>
+            <a class="topbar-btn d-none d-md-block" href="#" data-provide="fullscreen tooltip" title="" onclick="fullscreen()" data-original-title="Fullscreen">
+                <i class="material-icons fullscreen-default">fullscreen</i>
+                <i class="material-icons fullscreen-active">fullscreen_exit</i>
+            </a>
+            <div class="topbar-divider d-none d-md-block"></div>
+            PT. TRIBUANA PUTRA TASIK
+        </div>
+        <div class="topbar-right">
+            <ul class="topbar-btns">
+                <li class="dropdown">
+                    <span class="topbar-btn" data-toggle="dropdown"><img class="avatar" src="../assets/img/avatar/1.jpg" alt="..."></span>
+                    <div class="dropdown-menu dropdown-menu-right">
+                        <a class="dropdown-item" href="./?menu=config&amp;sub=akun"><i class="ti-user"></i> Akun</a>
+                        <a class="dropdown-item" href="./?menu=config&amp;sub=setting"><i class="ti-settings"></i> Setting</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="../logout.html"><i class="ti-power-off"></i> Logout</a>
+                    </div>
+                </li> <!-- Notifications -->
+            </ul>
+        </div>
+    </header> <!-- END Topbar -->
+    <!-- Main container -->
+    <main>
+        <div class="main-content">
+            <header class="header bg-ui-general">
+                <div class="header-info">
+                    <h1 class="header-title"> Hai, <strong>Administrator</strong>
+                        <small>Selamat datang di beranda Superadmin website Tribuana News Tasikmalaya - Portal Berita Online Priangan Timur</small>
+                    </h1>
+                </div>
+            </header><!--/.header -->
+            <div class="row">
+                <div class="col-xs-12 col-sm-4 col-md-4">
+                    <div class="card shadow-1">
+                        <div class="card-body">
+                            <div class="flexbox">
+                                <h5>Total Berita</h5>
+                            </div>
+                            <div class="text-center my-2">
+                                <div class="fs-30 fw-400 text-dark"> 2.498 </div>
+                                <span class="fw-400 text-muted">Berita</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4">
+                    <div class="card shadow-1">
+                        <div class="card-body">
+                            <div class="flexbox">
+                                <h5>Berita Dipublish</h5>
+                            </div>
+                            <div class="text-center my-2">
+                                <div class="fs-30 fw-400 text-success">2.498</div>
+                                <span class="fw-400 text-muted">Berita</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4">
+                    <div class="card shadow-1">
+                        <div class="card-body">
+                            <div class="flexbox">
+                                <h5>Berita Unpublish</h5>
+                            </div>
+                            <div class="text-center my-2">
+                                <div class="fs-30 fw-400 text-danger">15</div>
+                                <span class="fw-400 text-muted">Berita</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <br>
+            <br>
+        </div><!--/.main-content -->
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="row">
+            <div class="col-md-6">
+                <p class="text-center text-md-left">© 2019 <a href="">PT. TRIBUANA PUTRA TASIK</a></p>
+            </div>
+            <div class="col-md-6">
+                <ul class="nav nav-primary nav-dotted nav-dot-separated justify-content-center justify-content-md-end">
+                    <li class="nav-item">
+                        <a class="nav-link" href="">PT. TRIBUANA PUTRA TASIK</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </footer> <!-- END Footer -->
+</main> <!-- END Main container -->
+<!-- Scripts -->
+<script src="../assets/js/core.min.js" data-provide="sweetalert"></script>
+<script src="../assets/js/app.min.js"></script>
+<script src="../assets/js/script.min.js"></script>
+<script src="../ckeditor/ckeditor.js"></script>
+<script>
+app.ready(function(){
+    $(function() {
+        $("#datatable").on('click', ".delete", function(){
+            var id    = $(this).attr("id");
+            var judul = $(this).attr("title");
+            var string = 'id='+ id ;
+            var table  = $(this).attr("data-table");
+            swal({
+                title: 'Apakah anda yakin?',
+                text: "Data akan dihapus secara permanen!",
+                type: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Ya, hapus!',
+                cancelButtonText: 'Tidak, batalkan!',
+                confirmButtonClass: 'btn btn-primary',
+                cancelButtonClass: 'btn btn-secondary',
+                buttonsStyling: false
+            })
+            .then(function() {
+                $.ajax({
+                    type: "POST",
+                    url: "ajax_del.php?table=" + table,
+                    data: string,
+                    cache: false,
+                    success: function(data){
+                        if(data=="sukses"){
+                            $("#row_" + id).fadeOut('slow', function() {$(this).remove();});
+                            $(".datareload").load(location.href + " .datareload");
+                            swal('OK, Berhasil!', 'Salahsatu data ' + table + ' ID:' + id + ' telah dihapus', 'success' );
+                        } else {
+                            swal('Ups, Gagal!', 'Data ' + data + ' gagal dihapus', 'warning' );
+                        }
+                    }
+                });
+            }, function(dismiss) {
+                // dismiss can be 'cancel', 'overlay',
+                // 'close', and 'timer'
+                })
+            });
+        });
+    });
+    function fullscreen(){
+        if (!document.fullscreenElement &&    // alternative standard method
+            !document.mozFullScreenElement && 
+            !document.webkitFullscreenElement && 
+            !document.msFullscreenElement ) {  // current working methods
+            if (document.documentElement.requestFullscreen) {document.documentElement.requestFullscreen();}
+            else if (document.documentElement.msRequestFullscreen) {document.documentElement.msRequestFullscreen();}
+            else if (document.documentElement.mozRequestFullScreen) {document.documentElement.mozRequestFullScreen();}
+            else if (document.documentElement.webkitRequestFullscreen) {document.documentElement.webkitRequestFullscreen(Element.ALLOW_KEYBOARD_INPUT);}
+            } 
+        else {
+            if (document.exitFullscreen) {document.exitFullscreen();}
+            else if (document.msExitFullscreen) {document.msExitFullscreen();}
+            else if (document.mozCancelFullScreen) {document.mozCancelFullScreen();}
+            else if (document.webkitExitFullscreen) {document.webkitExitFullscreen();}
+        }
+    }
+    CKEDITOR.replace( 'editor');
+    </script>
+    <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495" integrity="sha512-iIg7k2xntmwu6/uSb5tpc/hySgZc4eoL31yB29W6tJFo2akwjPWcEqnCEdJvGexCL0KEQwVYv5BlowfhVz26hg==" data-cf-beacon="{&quot;version&quot;:&quot;2024.11.0&quot;,&quot;token&quot;:&quot;14ed4f3b43264321af69bf468a386634&quot;,&quot;r&quot;:1,&quot;spa&quot;:2}" crossorigin="anonymous"></script>
+</body>
+</html>
